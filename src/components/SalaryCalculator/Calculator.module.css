@@ -1,0 +1,53 @@
+.item {
+  padding: 15px;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  justify-content: flex-end;
+}
+
+@media only screen and (max-width: 600px) {
+  .buttonWrapper {
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .buttonWrapper button {
+    width: 100%;
+  }
+}
+
+.totalWrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.total {
+  overflow: hidden;
+  margin: 0 0 0 10px;
+  font-size: 22px;
+}
+
+.moreWrapper {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  color: dodgerblue;
+  cursor: pointer;
+  user-select: none;
+}
+
+.moreButton {
+  text-decoration: underline;
+}
