@@ -8,15 +8,15 @@ import Grid from '@mui/material/Grid'
 import InputAdornment from '@mui/material/InputAdornment'
 import TextField from '@mui/material/TextField'
 
+import { ISalaryCalculator } from '../types'
+
 import styles from '../Calculator.module.css'
 
-interface IProps {
-  hoursProp?: number
-}
+type TProps = Pick<ISalaryCalculator, 'totalHoursProp'>
 
-const SimpleCalculator: FC<IProps> = ({ hoursProp = 0 }) => {
+const SimpleCalculator: FC<TProps> = ({ totalHoursProp = 0 }) => {
   const [rate, setRate] = useState<number>(0)
-  const [hours, setHours] = useState<number>(hoursProp)
+  const [hours, setHours] = useState<number>(totalHoursProp)
   const [sum, setSum] = useState<number>(0)
 
   useEffect(() => {

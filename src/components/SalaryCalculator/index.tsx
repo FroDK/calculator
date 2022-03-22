@@ -1,14 +1,19 @@
-import React, { SyntheticEvent, useState } from 'react'
+import React, { FC, SyntheticEvent, useState } from 'react'
 
 import Typography from '@mui/material/Typography'
 
 import { Accordion, AccordionDetails, AccordionSummary } from './Accordion'
 import NDFLCalculator from './NDFLCalculator'
 import SimpleCalculator from './SimpleCalculator'
+import { ISalaryCalculator } from './types'
 
 import styles from './index.module.css'
 
-const SalaryCalculator = () => {
+const SalaryCalculator: FC<ISalaryCalculator> = ({
+  totalHoursProp,
+  firstHalfHoursProp,
+  secondHalfHoursProp,
+}) => {
   const [expanded, setExpanded] = useState<string | false>('')
 
   const handleChange =
@@ -26,7 +31,7 @@ const SalaryCalculator = () => {
           <Typography>Простой калькулятор</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <SimpleCalculator />
+          <SimpleCalculator totalHoursProp={totalHoursProp} />
         </AccordionDetails>
       </Accordion>
 
@@ -38,7 +43,10 @@ const SalaryCalculator = () => {
           <Typography>НДФЛ калькулятор</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          <NDFLCalculator />
+          <NDFLCalculator
+            firstHalfHoursProp={firstHalfHoursProp}
+            secondHalfHoursProp={secondHalfHoursProp}
+          />
         </AccordionDetails>
       </Accordion>
     </div>

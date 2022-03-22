@@ -9,22 +9,21 @@ import Grid from '@mui/material/Grid'
 import InputAdornment from '@mui/material/InputAdornment'
 import TextField from '@mui/material/TextField'
 
+import { ISalaryCalculator } from '../types'
+
 import styles from '../Calculator.module.css'
 
-interface IProps {
-  hoursFirstHalfProp?: number
-  hoursSecondHalfProp?: number
-}
+type TProps = Omit<ISalaryCalculator, 'totalHoursProp'>
 
-const NDFLCalculator: FC<IProps> = ({
-  hoursFirstHalfProp = 0,
-  hoursSecondHalfProp = 0,
+const NDFLCalculator: FC<TProps> = ({
+  firstHalfHoursProp = 0,
+  secondHalfHoursProp = 0,
 }) => {
   const [rate, setRate] = useState<number>(0)
   const [hoursFirstHalf, setHoursFirstHalf] =
-    useState<number>(hoursFirstHalfProp)
+    useState<number>(firstHalfHoursProp)
   const [hoursSecondHalf, setHoursSecondHalf] =
-    useState<number>(hoursSecondHalfProp)
+    useState<number>(secondHalfHoursProp)
   const [salaryFirstHalf, setSalaryFirstHalf] = useState<number>(0)
   const [salarySecondHalf, setSalarySecondHalf] = useState<number>(0)
   const [districtCoef, setDistrictCoef] = useState<string | null>('1')

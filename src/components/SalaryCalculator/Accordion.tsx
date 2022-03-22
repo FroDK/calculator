@@ -39,7 +39,7 @@ const AccordionSummary = styled((props: AccordionSummaryProps) => (
   },
 }))
 
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+const AccordionDetails = styled(MuiAccordionDetails)(() => ({
   padding: '10px',
   borderTop: '1px solid rgba(0, 0, 0, .125)',
 }))
